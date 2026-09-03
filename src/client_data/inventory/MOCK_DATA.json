@@ -1,0 +1,82 @@
+[
+    {
+        "inventoryItemCode": 5270774,
+        "inventoryItemId": 3573,
+        "inventoryItemDescription": "Bike Repair Tool Kit",
+        "initialInventory": 7463563.9874,
+        "mov": 6489295.7368,
+        "value": 5298564.7392
+    },
+    {
+        "inventoryItemCode": 4712071,
+        "inventoryItemId": 5743,
+        "inventoryItemDescription": "Tomatillo Salsa",
+        "initialInventory": 6942665.1952,
+        "mov": 2603206.0061,
+        "value": 6932547.5608
+    },
+    {
+        "inventoryItemCode": 1718781,
+        "inventoryItemId": 5023,
+        "inventoryItemDescription": "Ice Cube Tray with Lid",
+        "initialInventory": 6322561.0143,
+        "mov": 6388303.5234,
+        "value": 6827501.8759
+    },
+    {
+        "inventoryItemCode": 2601956,
+        "inventoryItemId": 6967,
+        "inventoryItemDescription": "Video Camera",
+        "initialInventory": 1938810.7029,
+        "mov": 9479684.8507,
+        "value": 3877418.7435
+    },
+    {
+        "inventoryItemCode": 2252906,
+        "inventoryItemId": 6206,
+        "inventoryItemDescription": "Cotton Pajama Set",
+        "initialInventory": 5445599.1874,
+        "mov": 2451946.244,
+        "value": 9291923.3892
+    },
+    {
+        "inventoryItemCode": 7310895,
+        "inventoryItemId": 2672,
+        "inventoryItemDescription": "Chili Powder",
+        "initialInventory": 1734102.4566,
+        "mov": 2317074.8032,
+        "value": 7899635.6368
+    },
+    {
+        "inventoryItemCode": 2307851,
+        "inventoryItemId": 4587,
+        "inventoryItemDescription": "Beet Salad",
+        "initialInventory": 9210323.5547,
+        "mov": 2927339.0429,
+        "value": 4955763.8047
+    },
+    {
+        "inventoryItemCode": 8965473,
+        "inventoryItemId": 1389,
+        "inventoryItemDescription": "Ricotta Cheese",
+        "initialInventory": 8697821.9325,
+        "mov": 5924778.9935,
+        "value": 6213784.1608
+    },
+    {
+        "inventoryItemCode": 6750883,
+        "inventoryItemId": 2972,
+        "inventoryItemDescription": "Classic Cheeseburger Mix",
+        "initialInventory": 907965.9103,
+        "mov": 7439327.5319,
+        "value": 3034719.6648
+    },
+    {
+        "inventoryItemCode": 8237891,
+        "inventoryItemId": 5659,
+        "inventoryItemDescription": "Plaid Flannel Shirt",
+        "initialInventory": 7006445.5888,
+        "mov": 1277189.7785,
+        "value": 2807954.7539
+    }
+]
