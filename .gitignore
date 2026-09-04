@@ -1,4 +1,21 @@
+# AWS SAM CLI
+.aws-sam/
+
+# Configuración local de SAM (opcional: ignóralo si contiene datos sensibles o rutas locales)
+samconfig.toml.gsi
+
+# Entornos virtuales de Python
 .venv/
+env/
 venv/
+ENV/
+
+# Archivos compilados y caché de Python
 __pycache__/
-*.pyc
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# Variables de entorno y credenciales locales
+.env
+.env.*

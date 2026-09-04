@@ -1,0 +1,70 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Public API full serverless on AWS using IaC
+
+Globals:
+  Function:
+    Timeout: 10
+    MemorySize: 128
+    Runtime: python3.12
+    Architectures:
+      - x86_64
+    CodeUri: src/
+
+Resources:
+  PublicApi:
+    Type: AWS::Serverless::HttpApi
+    Properties:
+      StageName: $default
+      CorsConfiguration:
+        AllowOrigins:
+          - '*'
+        AllowMethods:
+          - GET
+          - OPTIONS
+        AllowHeaders:
+          - Content-Type
+  
+  GetInventoryMovementsFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: get-client-inventory-movements
+      Handler: client_data.inventory.inventory_handler.lambda_handler
+      Events:
+        ApiEvent:
+          Type: HttpApi
+          Properties:
+            Path: /client-data/inventory/movements
+            Method: GET
+            ApiId: !Ref PublicApi
+            
+  GetSalesDepositsFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: get-client-sales-deposits
+      Handler: client_data.sales.sales_handler.lambda_handler
+      Events:
+        ApiEvent:
+          Type: HttpApi
+          Properties:
+            Path: /client-data/sales/deposits
+            Method: GET
+            ApiId: !Ref PublicApi
+
+  GetPurchasesDetailsFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: get-client-purchases-details
+      Handler: client_data.purchases.purchases_handler.lambda_handler
+      Events:
+        ApiEvent:
+          Type: HttpApi
+          Properties:
+            Path: /client-data/purchases/details
+            Method: GET
+            ApiId: !Ref PublicApi
+
+Outputs:
+  ApiEndpoint:
+    Description: "Base URL from HTTP API"
+    Value: !Sub "https://${PublicApi}.execute-api.${AWS::Region}.amazonaws.com"
