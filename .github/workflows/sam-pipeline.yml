@@ -53,6 +53,6 @@ jobs:
 
             # 9. DESPLIEGUE A AWS
             - name: Deploy SAM application
-              if: github.event_name == 'push' && github.ref == 'refs/heads/dev'
+              if: github.event_name == 'push' && github.ref == 'refs/heads/develop'
               run: |
                 sam deploy --no-confirm-changeset --no-fail-on-empty-changeset
