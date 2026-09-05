@@ -2,9 +2,11 @@ name: CI/CD Pipeline - AWS SAM
 
 # 1. DISPARADOR (TRIGGER)
 on:
+    pull_request:
+        branches:
+            - dev
     push:
         branches:
-            - feature/setup-cicd
             - dev
 
 jobs:
@@ -51,5 +53,6 @@ jobs:
 
             # 9. DESPLIEGUE A AWS
             - name: Deploy SAM application
+              if: github.event_name == 'push' && github.ref == 'refs/heads/dev'
               run: |
                 sam deploy --no-confirm-changeset --no-fail-on-empty-changeset
