@@ -1,0 +1,55 @@
+name: CI/CD Pipeline - AWS SAM
+
+# 1. DISPARADOR (TRIGGER)
+on:
+    push:
+        branches:
+            - feature/setup-cicd
+            - dev
+
+jobs:
+    test-and-deploy:
+        runs-on: ubuntu-latest
+
+        steps:
+            # 2. OBTENER CÓDIGO
+            - name: Checkout repository
+              uses: actions/checkout@v4
+            
+            # 3. CONFIGURAR ENTORNO PYTHON
+            - name: Set up Python
+              uses: actions/setup-python@v5
+              with:
+                    python-version: '3.11'
+            
+            # 4. INSTALACIÓN DE DEPENDENCIAS
+            - name: Install dependencies
+              run: |
+                python -m pip install --upgrade pip
+                if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
+            # 5. PRUEBAS UNITARIAS (GATEKEEPER)
+            - name: Run unit Test with Pytest
+              run: |
+                python -m pytest
+
+            # 6. INSTALACIÓN DE SAM CLI
+            - name: Setup AWS SAM CLI
+              uses: aws-actions/setup-sam@v2
+
+            # 7. AUTENTICACIÓN CON AWS
+            - name: Configure AWS Credentials
+              uses: aws-actions/configure-aws-credentiales@v4
+              with:
+                aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+                aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+                aws-region: us-east-1
+
+            # 8. COMPILACIÓN E INFRAESTRUCTURA
+            - name: Build SAM application
+              run: sam build
+
+            # 9. DESPLIEGUE A AWS
+            - name: Deploy SAM application
+              run: |
+                sam deploy --no-confirm-changeset --no-fail-on-empty-changeset
