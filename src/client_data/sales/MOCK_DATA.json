@@ -1,10 +1,72 @@
-[{"depositId":3599,"depositTime":"2025-03-31 17:48:57","businessDate":"2025-01-31","salesAreaName":"Automotive","voucherNumber":"10056-135"},
-{"depositId":4979,"depositTime":"2026-06-08 11:10:06","businessDate":"2025-09-22","salesAreaName":"Grocery","voucherNumber":"52125-668"},
-{"depositId":2696,"depositTime":"2025-11-16 08:55:08","businessDate":"2026-01-27","salesAreaName":"Tools","voucherNumber":"0781-2693"},
-{"depositId":8252,"depositTime":"2026-04-17 06:31:48","businessDate":"2025-06-09","salesAreaName":"Games","voucherNumber":"55154-5175"},
-{"depositId":1896,"depositTime":"2026-08-10 21:29:07","businessDate":"2025-04-09","salesAreaName":"Tools","voucherNumber":"54340-702"},
-{"depositId":8781,"depositTime":"2025-03-17 11:41:01","businessDate":"2025-03-15","salesAreaName":"Movies","voucherNumber":"41163-434"},
-{"depositId":7675,"depositTime":"2025-07-31 17:11:43","businessDate":"2025-01-04","salesAreaName":"Computers","voucherNumber":"54868-5477"},
-{"depositId":2540,"depositTime":"2025-10-27 16:34:45","businessDate":"2026-05-05","salesAreaName":"Clothing","voucherNumber":"54575-399"},
-{"depositId":6662,"depositTime":"2025-06-30 06:11:57","businessDate":"2026-04-12","salesAreaName":"Games","voucherNumber":"68788-9790"},
-{"depositId":4518,"depositTime":"2025-12-24 16:15:12","businessDate":"2026-03-22","salesAreaName":"Electronics","voucherNumber":"28691-2501"}]
+[
+    {
+        "depositId": 3599,
+        "depositTime": "2025-03-31 17:48:57",
+        "businessDate": "2025-01-31",
+        "salesAreaName": "Automotive",
+        "voucherNumber": "10056-135"
+    },
+    {
+        "depositId": 4979,
+        "depositTime": "2026-06-08 11:10:06",
+        "businessDate": "2025-09-22",
+        "salesAreaName": "Grocery",
+        "voucherNumber": "52125-668"
+    },
+    {
+        "depositId": 2696,
+        "depositTime": "2025-11-16 08:55:08",
+        "businessDate": "2026-01-27",
+        "salesAreaName": "Tools",
+        "voucherNumber": "0781-2693"
+    },
+    {
+        "depositId": 8252,
+        "depositTime": "2026-04-17 06:31:48",
+        "businessDate": "2025-06-09",
+        "salesAreaName": "Games",
+        "voucherNumber": "55154-5175"
+    },
+    {
+        "depositId": 1896,
+        "depositTime": "2026-08-10 21:29:07",
+        "businessDate": "2025-04-09",
+        "salesAreaName": "Tools",
+        "voucherNumber": "54340-702"
+    },
+    {
+        "depositId": 8781,
+        "depositTime": "2025-03-17 11:41:01",
+        "businessDate": "2025-03-15",
+        "salesAreaName": "Movies",
+        "voucherNumber": "41163-434"
+    },
+    {
+        "depositId": 7675,
+        "depositTime": "2025-07-31 17:11:43",
+        "businessDate": "2025-01-04",
+        "salesAreaName": "Computers",
+        "voucherNumber": "54868-5477"
+    },
+    {
+        "depositId": 2540,
+        "depositTime": "2025-10-27 16:34:45",
+        "businessDate": "2026-05-05",
+        "salesAreaName": "Clothing",
+        "voucherNumber": "54575-399"
+    },
+    {
+        "depositId": 6662,
+        "depositTime": "2025-06-30 06:11:57",
+        "businessDate": "2026-04-12",
+        "salesAreaName": "Games",
+        "voucherNumber": "68788-9790"
+    },
+    {
+        "depositId": 4518,
+        "depositTime": "2025-12-24 16:15:12",
+        "businessDate": "2026-03-22",
+        "salesAreaName": "Electronics",
+        "voucherNumber": "28691-2501"
+    }
+]
