@@ -10,6 +10,10 @@ Globals:
     Architectures:
       - x86_64
     CodeUri: src/
+    Environment:
+      Variables:
+        ATHENA_DATABASE_NAME: turbo_octo_lamb
+        ATHENA_OUTPUT_LOCATION: "s3://turbo-octo-lamb-athena-results-113008552223-us-east-1-an/athena-results/"
 
 Resources:
   PublicApi:
@@ -30,6 +34,33 @@ Resources:
     Properties:
       FunctionName: get-client-inventory-movements
       Handler: client_data.inventory.inventory_handler.lambda_handler
+      Policies:
+        - AthenaQueryPolicy:
+            WorkGroupName: primary
+        - Statement:
+            - Effect: Allow
+              Action:
+                - s3:GetObject
+                - s3:ListBucket
+              Resource:
+                - "arn:aws:s3:::turbo-octo-lamb-mock-data-113008552223-us-east-1-an"
+                - "arn:aws:s3:::turbo-octo-lamb-mock-data-113008552223-us-east-1-an/*"
+            - Effect: Allow
+              Action:
+                - s3:PutObject
+                - s3:GetObject
+              Resource:
+                - "arn:aws:s3:::turbo-octo-lamb-athena-results-113008552223-us-east-1-an/*"
+        - Statement:
+            - Effect: Allow
+              Action:
+                - glue:GetDatabase
+                - glue:GetTable
+                - glue:GetPartitions
+              Resource:
+                - !Sub "arn:aws:glue:${AWS::Region}:${AWS::AccountId}:catalog"
+                - !Sub "arn:aws:glue:${AWS::Region}:${AWS::AccountId}:database/turbo_octo_lamb"
+                - !Sub "arn:aws:glue:${AWS::Region}:${AWS::AccountId}:table/turbo_octo_lamb/*"
       Events:
         ApiEvent:
           Type: HttpApi
