@@ -8,7 +8,6 @@ _ATHENA_CLIENT = boto3.client('athena')
 class AthenaService:
     def __init__(self, client = None, database_name: str = None, output_location: str = None):
         self.client = client or _ATHENA_CLIENT
-        print(os.environ)
         self.database_name = database_name or os.environ.get('ATHENA_DATABASE_NAME')
         self.output_location = output_location or os.environ.get('ATHENA_OUTPUT_LOCATION')
         
