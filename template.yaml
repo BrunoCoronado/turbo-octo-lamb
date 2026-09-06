@@ -74,6 +74,33 @@ Resources:
     Properties:
       FunctionName: get-client-sales-deposits
       Handler: client_data.sales.sales_handler.lambda_handler
+      Policies:
+        - AthenaQueryPolicy:
+            WorkGroupName: primary
+        - Statement:
+            - Effect: Allow
+              Action:
+                - s3:GetObject
+                - s3:ListBucket
+              Resource:
+                - "arn:aws:s3:::turbo-octo-lamb-mock-data-113008552223-us-east-1-an"
+                - "arn:aws:s3:::turbo-octo-lamb-mock-data-113008552223-us-east-1-an/*"
+            - Effect: Allow
+              Action:
+                - s3:PutObject
+                - s3:GetObject
+              Resource:
+                - "arn:aws:s3:::turbo-octo-lamb-athena-results-113008552223-us-east-1-an/*"
+        - Statement:
+            - Effect: Allow
+              Action:
+                - glue:GetDatabase
+                - glue:GetTable
+                - glue:GetPartitions
+              Resource:
+                - !Sub "arn:aws:glue:${AWS::Region}:${AWS::AccountId}:catalog"
+                - !Sub "arn:aws:glue:${AWS::Region}:${AWS::AccountId}:database/turbo_octo_lamb"
+                - !Sub "arn:aws:glue:${AWS::Region}:${AWS::AccountId}:table/turbo_octo_lamb/*"
       Events:
         ApiEvent:
           Type: HttpApi
@@ -87,6 +114,33 @@ Resources:
     Properties:
       FunctionName: get-client-purchases-details
       Handler: client_data.purchases.purchases_handler.lambda_handler
+      Policies:
+        - AthenaQueryPolicy:
+            WorkGroupName: primary
+        - Statement:
+            - Effect: Allow
+              Action:
+                - s3:GetObject
+                - s3:ListBucket
+              Resource:
+                - "arn:aws:s3:::turbo-octo-lamb-mock-data-113008552223-us-east-1-an"
+                - "arn:aws:s3:::turbo-octo-lamb-mock-data-113008552223-us-east-1-an/*"
+            - Effect: Allow
+              Action:
+                - s3:PutObject
+                - s3:GetObject
+              Resource:
+                - "arn:aws:s3:::turbo-octo-lamb-athena-results-113008552223-us-east-1-an/*"
+        - Statement:
+            - Effect: Allow
+              Action:
+                - glue:GetDatabase
+                - glue:GetTable
+                - glue:GetPartitions
+              Resource:
+                - !Sub "arn:aws:glue:${AWS::Region}:${AWS::AccountId}:catalog"
+                - !Sub "arn:aws:glue:${AWS::Region}:${AWS::AccountId}:database/turbo_octo_lamb"
+                - !Sub "arn:aws:glue:${AWS::Region}:${AWS::AccountId}:table/turbo_octo_lamb/*"
       Events:
         ApiEvent:
           Type: HttpApi
