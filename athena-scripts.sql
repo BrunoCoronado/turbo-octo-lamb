@@ -55,3 +55,30 @@ WITH SERDEPROPERTIES (
 )
 LOCATION 's3://turbo-octo-lamb-mock-data-113008552223-us-east-1-an/sales/'
 TBLPROPERTIES ('skip.header.line.count'='1');
+
+--Get all inventory movements query
+SELECT 
+    inventoryItemCode,
+    inventoryItemId,
+    inventoryItemDescription,
+    initialInventory,
+    mov,
+    value
+FROM turbo_octo_lamb.inventory;
+
+--Get all purchases detailes query
+SELECT 
+    itemPurchaseId,
+    businessDate,
+    itemPurchaseReferenceNumber,
+    itemPurchaseComment
+FROM turbo_octo_lamb.purchases;
+
+--Get all sales deposits query
+SELECT 
+    depositId,
+    depositTime,
+    businessDate,
+    salesAreaName,
+    voucherNumber
+FROM turbo_octo_lamb.sales;
